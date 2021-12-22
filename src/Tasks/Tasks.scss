@@ -1,0 +1,125 @@
+.container-task{
+  
+  width: 60%;
+  margin: auto auto;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin-bottom: 4%;
+
+  .task{
+    width: 55%;
+    border: 1px solid rgb(67, 45, 70);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .buttons{
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+
+      div{
+        width: 25%;
+      }
+    
+    .redact{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5px;
+    }
+    .redact:hover{
+      cursor: pointer;
+    }
+
+    .redact:active{
+      box-shadow: 0 0 10px 5px rgb(172, 172, 172);
+    }
+
+    .delete{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .delete:hover{
+      cursor: pointer;
+    }
+
+    .delete:active{
+      box-shadow: 0 0 10px 5px rgb(172, 172, 172);
+    }
+
+    .checked{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .checked:hover{
+      cursor: pointer;
+    }
+
+    .checked:active{
+      box-shadow: 0 0 10px 5px rgb(172, 172, 172);
+    }
+  }
+
+ 
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px){
+  .container-task{
+    width: 60%;
+    height: 50px;
+    margin-bottom: 7%;
+
+    .task{
+      width: 65%;
+      border: 1px solid rgb(67, 45, 70);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .buttons{
+      width: 30%;
+    }
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 900px){
+  .container-task{
+    width: 80%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 7%;
+
+    .task{
+      order: 2;
+      width: 90%;
+      border: 1px solid rgb(67, 45, 70);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+    }
+
+    .buttons{
+      order: 1;
+      width: 60%;
+      height: 50px;
+      margin-bottom: 2%;
+    }
+    .redact{
+      margin-top: 0px;
+
+        img{
+          
+          height: 100%;
+        }
+    }
+  }
+}
