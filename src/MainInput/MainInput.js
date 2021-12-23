@@ -9,7 +9,7 @@ const Change = (event) => {
 }
 
 const Add = () => {
-  setArr([...arr, {
+  setArr([ ...arr, {
     taskName: inp,
     isCheck: false,
   }]);
@@ -19,7 +19,7 @@ const Add = () => {
   return (<div>
 		<div className="container">
       <div className="inp">
-        <input className="mainInp" value={inp} onChange={() => Change()}/>
+        <input className="mainInp" value={inp} onChange={(event) => Change(event)}/>
       </div>
       <div className="mainButton" onClick={() => Add()}>Add Task</div>
     </div>

@@ -9,7 +9,7 @@ const Tasks = ({arr, setArr}) => {
 
   const Check = ({isCheck}, index) => {
     arr[index].isCheck = !isCheck;
-    setArr([...arr]);
+    setArr([ ...arr ]);
   }
 
   const [red, setRed] = useState(-1);
@@ -21,7 +21,7 @@ const Tasks = ({arr, setArr}) => {
 
   const onBlur = (index) => {
     arr[index].taskName = val;
-    setArr([...arr]);
+    setArr([ ...arr ]);
     setRed(-1);
   }
   
