@@ -100,15 +100,14 @@ select {
   font: inherit;
 }
 
-input
-{
-padding: 0;
-margin: 0;
-border: 0;
-border: none;
+input {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border: none;
 }
 
-input:active, :hover, :focus {
+input:active, input:hover, input:focus {
   outline: 0;
   outline-offset: 0;
 }

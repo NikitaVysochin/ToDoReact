@@ -1,15 +1,32 @@
-import React from 'react';
-import "./MainInput.scss"
+import React, { State, useState } from "react";
+import "./MainInput.scss";
 
-function Input() {
-	return <>
+
+
+
+const Input = ({arr, setArr}) => {
+	const [inp, setInp] = useState('');
+
+const Change = (event) => {
+  setInp(event.target.value);
+}
+
+const Add = () => {
+  setArr([...arr, {
+    taskName: inp,
+    isCheck: false,
+  }]);
+  setInp('');
+}
+  
+  return (<div>
 		<div className="container">
       <div className="inp">
-        <input className="mainInp"/>
+        <input className="mainInp" value={inp} onChange={Change}/>
       </div>
-      <div className="mainButton">Add Tas</div>
+      <div className="mainButton" onClick={Add}>Add Task</div>
     </div>
-	</>;
+	</div>);
 }
 
 export default Input;
