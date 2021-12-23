@@ -1,9 +1,6 @@
 import React, { State, useState } from "react";
 import "./MainInput.scss";
 
-
-
-
 const Input = ({arr, setArr}) => {
 	const [inp, setInp] = useState('');
 
@@ -22,9 +19,9 @@ const Add = () => {
   return (<div>
 		<div className="container">
       <div className="inp">
-        <input className="mainInp" value={inp} onChange={Change}/>
+        <input className="mainInp" value={inp} onChange={() => Change()}/>
       </div>
-      <div className="mainButton" onClick={Add}>Add Task</div>
+      <div className="mainButton" onClick={() => Add()}>Add Task</div>
     </div>
 	</div>);
 }

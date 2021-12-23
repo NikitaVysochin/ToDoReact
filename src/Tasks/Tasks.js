@@ -7,7 +7,6 @@ import img3 from '../img/icons8-зачет-48.png';
 
 const Tasks = ({arr, setArr}) => {
 
-  
   const Check = ({isCheck}, index) => {
     arr[index].isCheck = !isCheck;
     setArr([...arr]);
@@ -17,7 +16,7 @@ const Tasks = ({arr, setArr}) => {
   const [val, setVal] = useState('');
 
   const onChange = (event) => {
-    setVal(event.target.value)
+    setVal(event.target.value);
   }
 
   const onBlur = (index) => {
@@ -32,7 +31,7 @@ const Tasks = ({arr, setArr}) => {
   }
 
   const Delete = (index) => {
-    setArr([...arr.slice(0, index), ...arr.slice(index+1)]);
+    setArr([ ...arr.slice(0, index), ...arr.slice(index+1) ]);
   }
 
 	return (<div>
