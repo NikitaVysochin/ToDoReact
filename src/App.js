@@ -1,12 +1,15 @@
 import logo from "./logo.svg";
 import "./App.scss";
-import React, { State, useState } from "react";
-import Test from "./Header/Header";
-import MainInput from "./MainInput/MainInput"
+import React, { State, useEffect, useState } from "react";
+import axios from "axios";
+import Header from "./Header/Header";
+import MainInput from "./MainInput/MainInput";
 import Tasks from "./Tasks/Tasks";
 
 const App = () => {
-  let temp = [
+  const [arr, setArr] = useState([]);
+
+  /*let temp = [
     {
       taskName: "задача",
       isCheck: false,
@@ -15,20 +18,22 @@ const App = () => {
       taskName: "задача3",
       isCheck: false,
     }
-  ];
-  const [arr, setArr] = useState(temp);
+  ];*/
 
-  return (<div>
-    <Test/>
-    <MainInput 
-      arr={arr} 
-      setArr={setArr}
-    />
-    <Tasks 
-      arr={arr} 
-      setArr={setArr} 
-    />
-  </div>);
-}
+  useEffect(async () => {
+    await axios.get("http://localhost:8000/getAllTasks").then((res) => {
+      setArr(res.data.data);
+    });
+  });
+
+  
+  return (
+    <div>
+      <Header />
+      <MainInput arr={arr} setArr={setArr} />
+      <Tasks arr={arr} setArr={setArr} />
+    </div>
+  );
+};
 
 export default App;

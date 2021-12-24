@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { State, useState } from "react";
 import "./MainInput.scss";
 
@@ -8,11 +9,13 @@ const Change = (event) => {
   setInp(event.target.value);
 }
 
-const Add = () => {
-  setArr([ ...arr, {
+const Add = async () => {
+  await axios.post('http://localhost:8000/createTask', {
     taskName: inp,
     isCheck: false,
-  }]);
+  }).then(res => {
+      setArr(res.data.data)
+    })
   setInp('');
 }
   
