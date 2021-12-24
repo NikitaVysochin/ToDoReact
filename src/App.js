@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.scss";
 import React, { State, useEffect, useState } from "react";
 import axios from "axios";
-import Test from "./Header/Header";
+import Header from "./Header/Header";
 import MainInput from "./MainInput/MainInput";
 import Tasks from "./Tasks/Tasks";
 
@@ -29,7 +29,7 @@ const App = () => {
   
   return (
     <div>
-      <Test />
+      <Header />
       <MainInput arr={arr} setArr={setArr} />
       <Tasks arr={arr} setArr={setArr} />
     </div>

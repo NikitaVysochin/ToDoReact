@@ -6,12 +6,12 @@ import img3 from "../img/icons8-зачет-48.png";
 import axios from "axios";
 
 const Tasks = ({ arr, setArr }) => {
-  const Check = async ({ isCheck }, index) => {
+  const Check = async ({ isCheck, taskName, _id }) => {
     await axios
       .patch(`http://localhost:8000/updateTask`, {
-        taskName: arr[index].taskName,
+        taskName,
         isCheck: !isCheck,
-        _id: arr[index]._id,
+        _id
       })
       .then((res) => {
         setArr(res.data.data);
@@ -35,7 +35,7 @@ const Tasks = ({ arr, setArr }) => {
       .then((res) => {
         setArr(res.data.data);
       });
-      setRed(-1);
+    setRed(-1);
   };
 
   const Redact = (elem, index) => {
@@ -43,7 +43,7 @@ const Tasks = ({ arr, setArr }) => {
     setVal(elem.taskName);
   };
 
-  const Delete = async (elem, index) => {
+  const Delete = async (elem) => {
     await axios
       .delete(`http://localhost:8000/deleteTask?_id=${elem._id}`)
       .then((res) => {
@@ -75,11 +75,11 @@ const Tasks = ({ arr, setArr }) => {
                   <img src={img1} />
                 </div>
               )}
-              <div className="delete" onClick={() => Delete(elem, index)}>
+              <div className="delete" onClick={() => Delete(elem)}>
                 <img src={img2} />
               </div>
 
-              <div className="checked" onClick={() => Check(elem, index)}>
+              <div className="checked" onClick={() => Check(elem)}>
                 <img src={img3} />
               </div>
             </div>
