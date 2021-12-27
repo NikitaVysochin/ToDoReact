@@ -1,5 +1,5 @@
 .main-route{
-  width: 60%;
+  width: 70%;
   margin: auto auto;
   background-color: rgb(133, 133, 133);
   height: 50px;
@@ -7,12 +7,23 @@
   justify-content: center;
   align-items: center;
 
+  .button-Cancel {
+    width: 50px;
+    height: 30px;
+    margin-right: 5px;
+    background-color: rgb(182, 119, 241);
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
   input{
     width: 60%;
     text-align: center;
   }
   .button-return{
-    width: 40px;
+    width: 50px;
     height: 30px;
     margin-left: 5px;
     background-color: rgb(182, 119, 241);

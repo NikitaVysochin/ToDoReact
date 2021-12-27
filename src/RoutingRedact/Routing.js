@@ -20,6 +20,7 @@ const Routing = ({arr, setArr, elem, setElem}) => {
 
   return (
     <div className='main-route'>
+      <Link to='/'><div className='button-Cancel'>Cancel</div></Link>
       <input value={value} onChange={(e) => setValue(e.target.value)}></input>
       <Link to='/'><div className='button-return' onClick={onBlur}>Save</div></Link>
     </div>
