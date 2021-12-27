@@ -1,11 +1,12 @@
 import React, { State, useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import "./Tasks.scss";
 import img1 from "../img/icons8-редактировать-свойство-96.png";
 import img2 from "../img/icons8-незачет-48.png";
 import img3 from "../img/icons8-зачет-48.png";
 import axios from "axios";
 
-const Tasks = ({ arr, setArr }) => {
+const Tasks = ({ arr, setArr, elem, setElem }) => {
   const Check = async ({ isCheck, taskName, _id }) => {
     await axios
       .patch(`http://localhost:8000/updateTask`, {
@@ -39,7 +40,12 @@ const Tasks = ({ arr, setArr }) => {
   };
 
   const Redact = (elem, index) => {
-    setRed(index);
+    setElem({
+      index: index,
+      elem: elem.taskName,
+      _id: elem._id
+    });
+    //setRed(index);
     setVal(elem.taskName);
   };
 
@@ -72,7 +78,7 @@ const Tasks = ({ arr, setArr }) => {
             <div className="buttons">
               {!elem.isCheck && (
                 <div className="redact" onClick={() => Redact(elem, index)}>
-                  <img src={img1} />
+                  <Link to='/routing'><img src={img1} /></Link>
                 </div>
               )}
               <div className="delete" onClick={() => Delete(elem)}>

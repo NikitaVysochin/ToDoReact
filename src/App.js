@@ -1,37 +1,40 @@
 import logo from "./logo.svg";
 import "./App.scss";
 import React, { State, useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import axios from "axios";
 import Header from "./Header/Header";
 import MainInput from "./MainInput/MainInput";
 import Tasks from "./Tasks/Tasks";
+import Routing from "./RoutingRedact/Routing";
+
+
 
 const App = () => {
   const [arr, setArr] = useState([]);
-
-  /*let temp = [
-    {
-      taskName: "задача",
-      isCheck: false,
-    },
-    {
-      taskName: "задача3",
-      isCheck: false,
-    }
-  ];*/
+  const [elem, setElem] = useState();
 
   useEffect(async () => {
     await axios.get("http://localhost:8000/getAllTasks").then((res) => {
       setArr(res.data.data);
     });
   });
-
   
   return (
     <div>
       <Header />
       <MainInput arr={arr} setArr={setArr} />
-      <Tasks arr={arr} setArr={setArr} />
+      <Routes>
+        <Route path='/' element={<Tasks 
+          arr={arr} 
+          setArr={setArr} 
+          elem={elem}
+          setElem={setElem} 
+        />}/>
+        <Route path='/routing' element={<Routing 
+          elem={elem}
+          setElem={setElem}/>}/>
+      </Routes>
     </div>
   );
 };
