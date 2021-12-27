@@ -39,14 +39,12 @@ const Tasks = ({ arr, setArr, elem, setElem }) => {
     setRed(-1);
   };
 
-  const Redact = (elem, index) => {
+  const Redact = ({taskName, _id}, index) => {
     setElem({
       index: index,
-      elem: elem.taskName,
-      _id: elem._id
+      task: taskName,
+      _id,
     });
-    //setRed(index);
-    setVal(elem.taskName);
   };
 
   const Delete = async (elem) => {

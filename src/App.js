@@ -1,14 +1,12 @@
 import logo from "./logo.svg";
 import "./App.scss";
 import React, { State, useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import axios from "axios";
 import Header from "./Header/Header";
 import MainInput from "./MainInput/MainInput";
 import Tasks from "./Tasks/Tasks";
 import Routing from "./RoutingRedact/Routing";
-
-
 
 const App = () => {
   const [arr, setArr] = useState([]);
@@ -25,7 +23,7 @@ const App = () => {
       <Header />
       <MainInput arr={arr} setArr={setArr} />
       <Routes>
-        <Route path='/' element={<Tasks 
+        <Route path='/home' element={<Tasks 
           arr={arr} 
           setArr={setArr} 
           elem={elem}
@@ -34,6 +32,7 @@ const App = () => {
         <Route path='/routing' element={<Routing 
           elem={elem}
           setElem={setElem}/>}/>
+        <Route path="/" element={<Navigate replace to="/home" />} />
       </Routes>
     </div>
   );

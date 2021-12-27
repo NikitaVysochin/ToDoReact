@@ -4,14 +4,15 @@ import './Routing.scss';
 import axios from "axios";
 
 const Routing = ({arr, setArr, elem, setElem}) => {
-  const [value, setValue] = useState(elem.elem);
+  const {task, _id} = elem; 
+  const [value, setValue] = useState(task);
 
   const onBlur = async () => {
     await axios
       .patch("http://localhost:8000/updateTask", {
         taskName: value,
         isCheck: false,
-        _id: elem._id
+        _id,
       })
       .then((res) => {
         setArr(res.data.data);
