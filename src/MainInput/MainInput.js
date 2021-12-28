@@ -1,8 +1,8 @@
-import axios from "axios";
 import React, { State, useState } from "react";
+import axios from "axios";
 import "./MainInput.scss";
 
-const Input = ({arr, setArr}) => {
+const Input = ({ arr, setArr }) => {
 	const [inp, setInp] = useState('');
 
 const Change = (event) => {

@@ -1,10 +1,11 @@
 import React, { State, useState } from "react";
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from "axios";
 import "./Tasks.scss";
 import img1 from "../img/icons8-редактировать-свойство-96.png";
 import img2 from "../img/icons8-незачет-48.png";
 import img3 from "../img/icons8-зачет-48.png";
-import axios from "axios";
+
 
 const Tasks = ({ arr, setArr, elem, setElem }) => {
   const Check = async ({ isCheck, taskName, _id }) => {
@@ -39,7 +40,7 @@ const Tasks = ({ arr, setArr, elem, setElem }) => {
     setRed(-1);
   };
 
-  const Redact = ({taskName, _id}, index) => {
+  const Redact = ({ taskName, _id }, index) => {
     setElem({
       index: index,
       task: taskName,
@@ -69,7 +70,7 @@ const Tasks = ({ arr, setArr, elem, setElem }) => {
                 className="taskInp"
               />
             ) : (
-              <div className={elem.isCheck ? "taskFalse" : "task"}>
+              <div className={ elem.isCheck ? "taskFalse" : "task" }>
                 <p>{elem.taskName}</p>
               </div>
             )}
