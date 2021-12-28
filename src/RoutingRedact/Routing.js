@@ -1,10 +1,10 @@
 import React, { State, useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import './Routing.scss';
 import axios from "axios";
+import './Routing.scss';
 
-const Routing = ({arr, setArr, elem, setElem}) => {
-  const {task, _id} = elem; 
+const Routing = ({ arr, setArr, elem, setElem }) => {
+  const { task, _id } = elem; 
   const [value, setValue] = useState(task);
 
   const onBlur = async () => {
